@@ -42,7 +42,7 @@ Static site presenting the Domondon Dominium framework (governed operating archi
 
 - [ ] Add `<link rel="canonical">` and Open Graph/Twitter meta tags to all six pages (needs final URL).
 - [ ] Add a favicon (a lamp mark 🕯️ would suit) and `og-image`.
-- [ ] Link the ecosystem cards on `about.html` and the Nurse AI OS mention on `start.html` to their live URLs (left unlinked deliberately — add the Nurse AI OS site URL and NIN URL when you want the sites cross-linked).
+- [x] Nurse AI OS cross-linked (https://nurse-ai-os.org) on `start.html`, `about.html`, and the home footer. NIN URL still to add when available.
 - [ ] Decide analytics (GoatCounter or Plausible are static-friendly, matching the main site's plan).
 - [ ] When the book has a publication page or mailing list, point `book.html`'s update section at it (currently `mailto:`; a Tally/Formspree form keeps mobile users, per the main site's own recommendation).
 - [x] One-page Five Rights PDF at `assets/five-rights.pdf`, linked from `governance.html`.
