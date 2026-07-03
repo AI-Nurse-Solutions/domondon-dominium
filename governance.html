@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Governance Core — Domondon Dominium™</title>
+<meta name="description" content="The Five Rights of AI Delegation, the L0–L5 autonomy ladder, the six rules for human gates that stay alive, and the ledger. What makes the architecture governed rather than merely organized.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/dominium.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Domondon Dominium<span class="tm">™</span></a>
+    <nav class="main" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="framework.html">The Framework</a>
+      <a href="governance.html" aria-current="page">Governance Core</a>
+      <a href="start.html">Get Started</a>
+      <a href="book.html">The Book</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero page-hero">
+  <div class="wrap">
+    <p class="kicker">The governance core</p>
+    <h1>What makes it governed, not just organized</h1>
+    <p class="lede">Four mechanisms carry the whole weight: a delegation doctrine, an autonomy ladder, gates engineered against decay, and a ledger. All four come from disciplines that learned them the hard way.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap narrow">
+    <p class="kicker">Mechanism one</p>
+    <h2>The Five Rights of AI Delegation</h2>
+    <p>Adapted from the NCSBN/ANA <em>National Guidelines for Nursing Delegation</em> — the legally tested doctrine by which a licensed nurse hands work to assistive personnel without ever handing off judgment or accountability. Before delegating any work to an AI agent, answer all five:</p>
+    <div class="rights">
+      <div class="right-card"><h3>1 · RIGHT TASK</h3><p>Is this work task-shaped — bounded, specifiable, checkable? Name the judgment braided inside it. Who is keeping that judgment?</p><p class="rule">Never delegable: assessment, interpretation, evaluation — anything that decides what the work means.</p></div>
+      <div class="right-card"><h3>2 · RIGHT CIRCUMSTANCE</h3><p>What tier is this use — audience, reversibility, current conditions? Would you still delegate it during your version of a code?</p><p class="rule">The same task may be delegable Tuesday and not during an incident. Tier the task, not the tool.</p></div>
+      <div class="right-card"><h3>3 · RIGHT AGENT</h3><p>Does this specific agent have a demonstrated track record on this class of task? What permissions does it hold that this task does not need?</p><p class="rule">Capability is task-specific. Scope is least-privilege. Track records live in the ledger.</p></div>
+      <div class="right-card"><h3>4 · RIGHT DIRECTION</h3><p>Does your instruction contain objective, limits, evidence requirement, escalation triggers, and intent? Did you get a read-back before execution?</p><p class="rule">Fire-and-forget is not delegation. It is abandonment with extra steps.</p></div>
+      <div class="right-card"><h3>5 · RIGHT SUPERVISION</h3><p>What is the active check on what comes back, who performs it, and when did that reviewer last reject something?</p><p class="rule">A reviewer who never rejects is a rubber stamp, not a gate.</p></div>
+    </div>
+    <div class="invariant">Tasks delegate. Judgment does not.<br>Accountability never moves.</div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="kicker">Mechanism two</p>
+    <h2>The autonomy ladder (L0–L5)</h2>
+    <div class="wrap narrow" style="padding:0">
+      <p>Automation levels are assigned per workflow <em>step</em>, not per tool — and autonomy is earned the way a novice nurse earns trust: tight supervision first, promotion only on evidence, demotion automatically on defect or boundary incident. AI is a permanent advanced beginner — fast, tireless, fluent, and without embodied judgment — so expert human judgment always sits above it.</p>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Level</th><th>AI role</th><th>Example</th><th>Condition</th></tr></thead>
+        <tbody>
+          <tr><td><strong>L0</strong></td><td>No AI involvement</td><td>Restricted clinical / legal decision</td><td>The prohibited zone — judgment is not delegable</td></tr>
+          <tr><td><strong>L1</strong></td><td>Retrieve and summarize</td><td>Pull relevant policy or meeting history</td><td>Safest stages to automate</td></tr>
+          <tr><td><strong>L2</strong></td><td>Draft and recommend</td><td>Draft email, report, brief, or claim review</td><td>Agents propose; humans hold decision and action</td></tr>
+          <tr><td><strong>L3</strong></td><td>Route and coordinate</td><td>Assign task, create checklist, notify owner</td><td>Coordination without judgment</td></tr>
+          <tr><td><strong>L4</strong></td><td>Execute low-risk action</td><td>Update dashboard, create task, file note</td><td>Two-way-door actions only; halts on anomaly</td></tr>
+          <tr><td><strong>L5</strong></td><td>Autonomous with monitoring</td><td>Mature, low-risk, well-governed workflows only</td><td>Reversible, logged, interruptible — kill switch mandatory</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="boundary">In clinical, claims, PHI, compliance, or governance-sensitive workflows: no L5. The highest-value work lives at L1–L3, with selective L4 for low-risk administrative tasks — and that is a feature, not a limitation.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <p class="kicker">Mechanism three</p>
+    <h2>Gates that stay alive</h2>
+    <p>"A human reviews all AI output" is true in most organizations the way a decayed ritual is true: on paper. Human gates rust open by default — vigilance fades, fluency disarms, approval becomes a reflex. Gates must be engineered against decay:</p>
+    <div class="steps">
+      <div class="step"><strong>1 · Gates are active.</strong><p>The reviewer performs a task — samples, reconstructs, traces sources — and produces information the output didn't hand her. Review is a performance, not a viewing.</p></div>
+      <div class="step"><strong>2 · Gates are measured.</strong><p>Rejection rate is a standing vital sign. A gate trending toward 100% approval triggers a review of the gate — a filter that passes everything is indistinguishable from a hole.</p></div>
+      <div class="step"><strong>3 · Gates are independent.</strong><p>Review layers must not share blind spots. An AI checking an AI is one defense wearing two name tags. Give reviewers the evidence, not the machine's summary of it.</p></div>
+      <div class="step"><strong>4 · Gates are empowered.</strong><p>The reviewer can understand, override, disregard, and halt — and exercising those powers is praised, never penalized. Count the clicks: if rejection costs a form and approval costs a click, the gate has a toll booth on the "no" lane.</p></div>
+      <div class="step"><strong>5 · Gates are placed, not sprinkled.</strong><p>Review attention is the scarcest resource in an AI-coordinated team. Gate by tier and reversibility; ungated-on-purpose funds gated-for-real.</p></div>
+      <div class="step"><strong>6 · Drafting, review, and approval never merge.</strong><p>Three roles, three questions, three failure modes — separated in person or, at minimum, in time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap narrow">
+    <p class="kicker">Mechanism four</p>
+    <h2>The ledger</h2>
+    <p>Every decision logged with rationale. Every claim tied to evidence. Every action attributable to a named identity — human or agent. The record is a form of respect: the people affected by the work deserve better than anyone's memory of what was done.</p>
+    <p>Each workflow carries a governance profile — risk tier, claim type, evidence requirement, PHI status, review gates, automation ceiling, audit rule, escalation owner. Designed for the person the work touches, it happens to satisfy the world's regulatory frameworks as a byproduct: the EU AI Act's logging and human-oversight articles, ISO/IEC 42001's accountability machinery, and professional human-in-the-loop mandates.</p>
+    <p class="tiers" aria-label="Risk classification"><span class="tier-green">🟢 Low risk — may proceed</span> <span class="tier-yellow">🟡 Conditional — human confirms</span> <span class="tier-red">🔴 High risk — human authorization mandatory</span></p>
+    <blockquote class="pull">If it isn't documented, it isn't governed.</blockquote>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap narrow" style="text-align:center">
+    <h2>Ready to apply it?</h2>
+    <p>The Minimum Viable Version takes one team, one month, and nothing you cannot do with documents and resolve.</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn" href="start.html">Get started</a>
+      <a class="btn ghost" href="book.html">Go deeper — the book</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="credo">🕯️ Carry the lamp. Keep the ledger. Agents propose. Humans judge. Nurses steward.</p>
+    <nav aria-label="Footer">
+      <a href="framework.html">Framework</a>
+      <a href="governance.html">Governance</a>
+      <a href="start.html">Get Started</a>
+      <a href="book.html">Book</a>
+      <a href="about.html">About</a>
+    </nav>
+    <p>Domondon Dominium™ © 2026 Robert Domondon · <a href="mailto:robert@domondon.us">robert@domondon.us</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
