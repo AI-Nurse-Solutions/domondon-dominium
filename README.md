@@ -45,7 +45,7 @@ Static site presenting the Domondon Dominium framework (governed operating archi
 - [ ] Link the ecosystem cards on `about.html` and the Nurse AI OS mention on `start.html` to their live URLs (left unlinked deliberately — add the Nurse AI OS site URL and NIN URL when you want the sites cross-linked).
 - [ ] Decide analytics (GoatCounter or Plausible are static-friendly, matching the main site's plan).
 - [ ] When the book has a publication page or mailing list, point `book.html`'s update section at it (currently `mailto:`; a Tally/Formspree form keeps mobile users, per the main site's own recommendation).
-- [ ] Optional: a downloadable one-page Five Rights PDF (Appendix D of the manuscript is designed for this) linked from `governance.html`.
+- [x] One-page Five Rights PDF at `assets/five-rights.pdf`, linked from `governance.html`.
 
 ## Editorial notes
 
