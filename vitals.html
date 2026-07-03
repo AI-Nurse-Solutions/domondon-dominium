@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team Vital Signs — Domondon Dominium™</title>
+<meta name="description" content="The eight-verb team assessment: take your team's vital signs, see where the system is strong, strained, or failing, and export the results for your AI to act on.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/dominium.css">
+<style>
+.vital { background: var(--white); border-radius: 10px; box-shadow: var(--shadow-sm); border-top: 4px solid var(--gold-500); padding: 1.3rem 1.4rem; margin: 1.2rem 0; }
+.vital h3 { margin-bottom: .2rem; }
+.vital .q { color: var(--ink-600); font-size: .96rem; margin: .3rem 0 .8rem; }
+.vital textarea { width: 100%; min-height: 5.2rem; border: 1px solid var(--parch-200); border-radius: 8px; padding: .7rem .8rem; font: inherit; font-size: .95rem; color: var(--ink-800); background: var(--parch-50); resize: vertical; }
+.vital textarea:focus { outline: 2px solid var(--gold-500); }
+.rate { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: .8rem; }
+.rate label { display: inline-flex; align-items: center; gap: .4rem; border: 2px solid var(--parch-200); border-radius: 8px; padding: .35rem .8rem; cursor: pointer; font-weight: 600; font-size: .9rem; background: var(--white); }
+.rate input { accent-color: var(--ink-800); }
+.rate label:has(input:checked)[data-tier="green"] { background:#e5f3e6; border-color:#2c6e31; color:#2c6e31; }
+.rate label:has(input:checked)[data-tier="yellow"] { background:#fdf3d7; border-color:#8a6420; color:#8a6420; }
+.rate label:has(input:checked)[data-tier="red"] { background:#fbe4e4; border-color:var(--red-700); color:var(--red-700); }
+.flinch { margin-top: .6rem; font-size: .9rem; color: var(--ink-600); display: flex; align-items: center; gap: .5rem; }
+#report { display: none; }
+#report.show { display: block; }
+.strip { display: grid; grid-template-columns: repeat(8, 1fr); gap: .45rem; margin: 1.4rem 0; }
+.strip .cell { border-radius: 8px; padding: .6rem .3rem; text-align: center; font-size: .78rem; font-weight: 700; line-height: 1.25; }
+.cell.green { background:#e5f3e6; color:#2c6e31; } .cell.yellow { background:#fdf3d7; color:#8a6420; }
+.cell.red { background:#fbe4e4; color:var(--red-700); } .cell.gray { background:var(--parch-200); color:var(--ink-600); }
+@media (max-width: 720px) { .strip { grid-template-columns: repeat(4, 1fr); } }
+.toolbar { display: flex; gap: .8rem; flex-wrap: wrap; margin: 1.4rem 0; }
+.btn.small { padding: .55rem 1.1rem; font-size: .92rem; }
+.note-js { background: var(--parch-100); border-left: 4px solid var(--teal-500); padding: .8rem 1.1rem; border-radius: 0 8px 8px 0; font-size: .93rem; color: var(--ink-600); }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Domondon Dominium<span class="tm">™</span></a>
+    <nav class="main" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="framework.html">The Framework</a>
+      <a href="governance.html">Governance Core</a>
+      <a href="start.html" aria-current="page">Get Started</a>
+      <a href="book.html">The Book</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero page-hero">
+  <div class="wrap">
+    <p class="kicker">Get started · Tool 1 of 3</p>
+    <h1>Team Vital Signs</h1>
+    <p class="lede">Eight verbs, eight honest answers, about twenty minutes. Everything stays in your browser — nothing is sent anywhere. Rate each verb, mark where you flinched, and the report shows where to start.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap narrow">
+    <p class="note-js">Private by design: your answers are saved only in this browser (you can clear them anytime below). Never enter patient information or anything confidential — describe your system, not the people in it.</p>
+
+    <form id="vitals">
+      <!-- Verbs are rendered statically so the exercise works even without JavaScript. -->
+      <div class="vital" data-verb="Receives demand">
+        <h3>1 · Receives demand</h3>
+        <p class="q">List every channel through which work reaches your team — including the hallway. Which channels does nobody watch?</p>
+        <textarea name="v1" placeholder="Email, meetings, tickets, the charge desk, the hallway ask…"></textarea>
+        <div class="rate" role="radiogroup" aria-label="Rating for receives demand">
+          <label data-tier="green"><input type="radio" name="r1" value="green">Strong — we see all our demand</label>
+          <label data-tier="yellow"><input type="radio" name="r1" value="yellow">Strained — some channels leak</label>
+          <label data-tier="red"><input type="radio" name="r1" value="red">Failing — work manages us</label>
+        </div>
+        <label class="flinch"><input type="checkbox" name="f1"> I flinched writing this one.</label>
+      </div>
+
+      <div class="vital" data-verb="Applies judgment">
+        <h3>2 · Applies judgment</h3>
+        <p class="q">Who decides what a request is, whether it's urgent, and whether it's yours? Name the actual humans — not "the team."</p>
+        <textarea name="v2" placeholder="Names, or the honest answer: whoever reads the inbox first…"></textarea>
+        <div class="rate" role="radiogroup" aria-label="Rating for applies judgment">
+          <label data-tier="green"><input type="radio" name="r2" value="green">Strong — named and consistent</label>
+          <label data-tier="yellow"><input type="radio" name="r2" value="yellow">Strained — depends on the day</label>
+          <label data-tier="red"><input type="radio" name="r2" value="red">Failing — nobody could say</label>
+        </div>
+        <label class="flinch"><input type="checkbox" name="f2"> I flinched writing this one.</label>
+      </div>
+
+      <div class="vital" data-verb="Performs work">
+        <h3>3 · Performs work</h3>
+        <p class="q">Your team's five recurring outputs. Just five. If you can't list them, that is itself the finding.</p>
+        <textarea name="v3" placeholder="1. …  2. …  3. …  4. …  5. …"></textarea>
+        <div class="rate" role="radiogroup" aria-label="Rating for performs work">
+          <label data-tier="green"><input type="radio" name="r3" value="green">Strong — clear and repeatable</label>
+          <label data-tier="yellow"><input type="radio" name="r3" value="yellow">Strained — everything is custom</label>
+          <label data-tier="red"><input type="radio" name="r3" value="red">Failing — couldn't name five</label>
+        </div>
+        <label class="flinch"><input type="checkbox" name="f3"> I flinched writing this one.</label>
+      </div>
+
+      <div class="vital" data-verb="Coordinates people">
+        <h3>4 · Coordinates people</h3>
+        <p class="q">Every standing meeting and update — and what each one is actually for. Be honest about which could be a written brief.</p>
+        <textarea name="v4" placeholder="Meeting, purpose, could-it-be-async…"></textarea>
+        <div class="rate" role="radiogroup" aria-label="Rating for coordinates people">
+          <label data-tier="green"><input type="radio" name="r4" value="green">Strong — handoffs close the loop</label>
+          <label data-tier="yellow"><input type="radio" name="r4" value="yellow">Strained — meetings carry everything</label>
+          <label data-tier="red"><input type="radio" name="r4" value="red">Failing — things fall between people</label>
+        </div>
+        <label class="flinch"><input type="checkbox" name="f4"> I flinched writing this one.</label>
+      </div>
+
+      <div class="vital" data-verb="Uses knowledge">
+        <h3>5 · Uses knowledge</h3>
+        <p class="q">Three things your team knows that exist only in someone's head. Name the heads. What happens when they retire?</p>
+        <textarea name="v5" placeholder="The thing, and the head it lives in…"></textarea>
+        <div class="rate" role="radiogroup" aria-label="Rating for uses knowledge">
+          <label data-tier="green"><input type="radio" name="r5" value="green">Strong — written, current, findable</label>
+          <label data-tier="yellow"><input type="radio" name="r5" value="yellow">Strained — half folklore</label>
+          <label data-tier="red"><input type="radio" name="r5" value="red">Failing — it walks out at shift change</label>
+        </div>
+        <label class="flinch"><input type="checkbox" name="f5"> I flinched writing this one.</label>
+      </div>
+
+      <div class="vital" data-verb="Manages risk">
+        <h3>6 · Manages risk</h3>
+        <p class="q">The last thing that went out and shouldn't have. What check would have caught it — and does that check exist today?</p>
+        <textarea name="v6" placeholder="What escaped, what would have caught it…"></textarea>
+        <div class="rate" role="radiogroup" aria-label="Rating for manages risk">
+          <label data-tier="green"><input type="radio" name="r6" value="green">Strong — gates exist and reject things</label>
+          <label data-tier="yellow"><input type="radio" name="r6" value="yellow">Strained — checks are habits, not designs</label>
+          <label data-tier="red"><input type="radio" name="r6" value="red">Failing — we find out from the recipient</label>
+        </div>
+        <label class="flinch"><input type="checkbox" name="f6"> I flinched writing this one.</label>
+      </div>
+
+      <div class="vital" data-verb="Produces outputs">
+        <h3>7 · Produces outputs</h3>
+        <p class="q">Who receives your work, and what do they do with it next? Would they describe your output the way you would?</p>
+        <textarea name="v7" placeholder="Recipient, what happens downstream…"></textarea>
+        <div class="rate" role="radiogroup" aria-label="Rating for produces outputs">
+          <label data-tier="green"><input type="radio" name="r7" value="green">Strong — we know our downstream</label>
+          <label data-tier="yellow"><input type="radio" name="r7" value="yellow">Strained — we ship and hope</label>
+          <label data-tier="red"><input type="radio" name="r7" value="red">Failing — no idea what happens next</label>
+        </div>
+        <label class="flinch"><input type="checkbox" name="f7"> I flinched writing this one.</label>
+      </div>
+
+      <div class="vital" data-verb="Improves over time">
+        <h3>8 · Improves over time</h3>
+        <p class="q">The last time a lesson became a changed procedure — not a reminder, a changed checklist or step. If you can't remember one, write that down too.</p>
+        <textarea name="v8" placeholder="The lesson, and what physically changed…"></textarea>
+        <div class="rate" role="radiogroup" aria-label="Rating for improves over time">
+          <label data-tier="green"><input type="radio" name="r8" value="green">Strong — lessons become architecture</label>
+          <label data-tier="yellow"><input type="radio" name="r8" value="yellow">Strained — retros happen, nothing changes</label>
+          <label data-tier="red"><input type="radio" name="r8" value="red">Failing — same incident, every quarter</label>
+        </div>
+        <label class="flinch"><input type="checkbox" name="f8"> I flinched writing this one.</label>
+      </div>
+    </form>
+
+    <div class="toolbar">
+      <button class="btn small" id="gen" type="button">Generate the report</button>
+      <button class="btn small ghost" style="color:var(--ink-800);border-color:var(--gold-600)" id="clear" type="button">Clear my answers</button>
+    </div>
+
+    <div id="report" aria-live="polite">
+      <h2>Your team's vital signs</h2>
+      <div class="strip" id="strip"></div>
+      <div id="findings"></div>
+      <div class="toolbar">
+        <button class="btn small" id="dl" type="button">Download as Markdown</button>
+        <button class="btn small" id="copyai" type="button">Copy as a prompt for your AI</button>
+        <button class="btn small ghost" style="color:var(--ink-800);border-color:var(--gold-600)" onclick="window.print()" type="button">Print</button>
+      </div>
+      <p style="font-size:.92rem;color:var(--ink-600)">The "prompt for your AI" wraps your answers with instructions for a governed AI system (one running the <a href="governance.html">governance core</a>) to propose first moves — drafts for your review, never actions. Next step after this: the <a href="mvv.html">four-week Minimum Viable Version</a>.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var KEY = "dd-vitals-v1";
+  var form = document.getElementById("vitals");
+  var CHAPTER = { 1:"Component 4 — demand sources", 2:"Component 5 — intake & triage", 3:"Component 3 — service catalog",
+                  4:"Components 12–13 — rhythm & tracking", 5:"Components 10–11 — knowledge & systems",
+                  6:"Components 14–15 — quality & governance", 7:"Component 2 — stakeholders", 8:"Component 18 — the learning loop" };
+  var NAMES = ["Receives demand","Applies judgment","Performs work","Coordinates people","Uses knowledge","Manages risk","Produces outputs","Improves over time"];
+
+  function state() {
+    var s = { t:{}, r:{}, f:{} };
+    for (var i = 1; i <= 8; i++) {
+      var ta = form.elements["v"+i]; s.t[i] = ta ? ta.value : "";
+      var rd = form.querySelector('input[name="r'+i+'"]:checked'); s.r[i] = rd ? rd.value : "";
+      s.f[i] = form.elements["f"+i] ? form.elements["f"+i].checked : false;
+    }
+    return s;
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state())); } catch (e) {} }
+  function load() {
+    var raw; try { raw = localStorage.getItem(KEY); } catch (e) { return; }
+    if (!raw) return;
+    try {
+      var s = JSON.parse(raw);
+      for (var i = 1; i <= 8; i++) {
+        if (form.elements["v"+i]) form.elements["v"+i].value = s.t[i] || "";
+        if (s.r[i]) { var rd = form.querySelector('input[name="r'+i+'"][value="'+s.r[i]+'"]'); if (rd) rd.checked = true; }
+        if (form.elements["f"+i]) form.elements["f"+i].checked = !!s.f[i];
+      }
+    } catch (e) {}
+  }
+  form.addEventListener("input", save);
+
+  function report() {
+    var s = state(), strip = document.getElementById("strip"), out = document.getElementById("findings");
+    strip.innerHTML = ""; var weak = [], flinches = [];
+    for (var i = 1; i <= 8; i++) {
+      var tier = s.r[i] || "gray";
+      var cell = document.createElement("div");
+      cell.className = "cell " + tier;
+      cell.textContent = NAMES[i-1];
+      strip.appendChild(cell);
+      if (tier === "red") weak.push(i);
+      if (s.f[i]) flinches.push(i);
+    }
+    if (!weak.length) for (var j = 1; j <= 8; j++) if (s.r[j] === "yellow") weak.push(j);
+    var html = "";
+    if (weak.length) {
+      html += "<h3>Start here</h3><ul>";
+      weak.slice(0,3).forEach(function (i) {
+        html += "<li><strong>" + NAMES[i-1] + "</strong> — see " + CHAPTER[i] + " on the <a href='framework.html'>framework page</a>.</li>";
+      });
+      html += "</ul>";
+    } else {
+      html += "<p><strong>All green?</strong> Either your team is remarkable, or the ratings were kind. Try the <a href='canvas.html'>24-item canvas rubric</a> — it is harder to be kind to.</p>";
+    }
+    if (flinches.length) {
+      html += "<p>You flinched at: <strong>" + flinches.map(function (i) { return NAMES[i-1]; }).join(", ") +
+              "</strong>. The flinches are the map — they usually point at the same one or two verbs as the ratings.</p>";
+    }
+    html += "<p>Remember the reading: the crisis almost never lives in verb three. The system around the work is the problem — and the system is fixable.</p>";
+    out.innerHTML = html;
+    document.getElementById("report").classList.add("show");
+    document.getElementById("report").scrollIntoView({ behavior: "smooth" });
+  }
+
+  function md() {
+    var s = state(), lines = ["# Team Vital Signs — " + new Date().toISOString().slice(0,10), ""];
+    for (var i = 1; i <= 8; i++) {
+      lines.push("## " + i + ". " + NAMES[i-1] + " — " + (s.r[i] ? s.r[i].toUpperCase() : "unrated") + (s.f[i] ? " · FLINCHED" : ""));
+      lines.push(s.t[i] || "(no answer)"); lines.push("");
+    }
+    lines.push("---"); lines.push("Generated by the Domondon Dominium vital-signs tool. Framework: the eight verbs.");
+    return lines.join("\n");
+  }
+
+  document.getElementById("gen").addEventListener("click", function () { save(); report(); });
+  document.getElementById("clear").addEventListener("click", function () {
+    if (!confirm("Clear all answers from this browser?")) return;
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    form.reset(); document.getElementById("report").classList.remove("show");
+  });
+  document.getElementById("dl").addEventListener("click", function () {
+    var blob = new Blob([md()], { type: "text/markdown" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob); a.download = "team-vital-signs.md"; a.click();
+    URL.revokeObjectURL(a.href);
+  });
+  document.getElementById("copyai").addEventListener("click", function (e) {
+    var prompt = "You are my governed AI assistant. Rules: everything you produce is a draft for my review; you recommend, you do not act; " +
+      "no patient or confidential information is involved. Below are my team's vital signs (the eight-verb assessment from the Domondon Dominium framework).\n\n" +
+      "Task: (1) identify the two weakest verbs and explain the likely system failure behind each in plain language; " +
+      "(2) propose the single smallest artifact from the Minimum Viable Version that would help each (charter, catalog, intake form, triage, workflow map, role map, knowledge map, gates, dashboard, weekly brief, ledger, metrics); " +
+      "(3) draft that artifact's skeleton for me to edit. Ask me at most three clarifying questions first.\n\n---\n\n" + md();
+    (navigator.clipboard ? navigator.clipboard.writeText(prompt) : Promise.reject()).then(function () {
+      e.target.textContent = "Copied ✓"; setTimeout(function () { e.target.textContent = "Copy as a prompt for your AI"; }, 2000);
+    }).catch(function () { window.prompt("Copy this prompt:", prompt); });
+  });
+
+  load();
+})();
+</script>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="credo">🕯️ Carry the lamp. Keep the ledger. Agents propose. Humans judge. Nurses steward.</p>
+    <nav aria-label="Footer">
+      <a href="framework.html">Framework</a>
+      <a href="governance.html">Governance</a>
+      <a href="start.html">Get Started</a>
+      <a href="book.html">Book</a>
+      <a href="about.html">About</a>
+    </nav>
+    <p>Domondon Dominium™ © 2026 Robert Domondon · <a href="mailto:robert@domondon.us">robert@domondon.us</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

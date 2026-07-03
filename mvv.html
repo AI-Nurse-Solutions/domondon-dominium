@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MVV Tracker — Domondon Dominium™</title>
+<meta name="description" content="Track the Minimum Viable Version build: twelve artifacts, four weeks, one team. Definitions of done for each artifact, progress saved in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/dominium.css">
+<style>
+.progress { position: sticky; top: 3.4rem; z-index: 40; background: var(--parch-50); padding: .8rem 0 .6rem; border-bottom: 1px solid var(--parch-200); }
+.bar { height: 12px; background: var(--parch-200); border-radius: 6px; overflow: hidden; }
+.bar > div { height: 100%; width: 0%; background: linear-gradient(90deg, var(--teal-500), var(--gold-500)); transition: width .3s; }
+.progress p { margin: .4rem 0 0; font-size: .88rem; color: var(--ink-600); }
+.week h2 { margin-top: 2.4rem; }
+.artifact { background: var(--white); border-radius: 10px; box-shadow: var(--shadow-sm); border-left: 5px solid var(--parch-200); padding: 1.1rem 1.3rem; margin: 1rem 0; }
+.artifact.done { border-left-color: #2c6e31; }
+.artifact h3 { display: flex; align-items: center; gap: .6rem; font-size: 1.05rem; }
+.artifact h3 input { width: 1.15rem; height: 1.15rem; accent-color: #2c6e31; }
+.artifact .why { color: var(--ink-600); font-size: .93rem; margin: .3rem 0 .6rem; }
+.dod { list-style: none; padding: 0; margin: 0; font-size: .93rem; }
+.dod li { display: flex; gap: .5rem; align-items: baseline; padding: .18rem 0; color: var(--ink-800); }
+.dod input { accent-color: var(--teal-600); }
+.artifact .ref { font-size: .85rem; color: var(--ink-600); margin-top: .5rem; }
+.toolbar { display: flex; gap: .8rem; flex-wrap: wrap; margin: 1.6rem 0; }
+.btn.small { padding: .55rem 1.1rem; font-size: .92rem; }
+.note-js { background: var(--parch-100); border-left: 4px solid var(--teal-500); padding: .8rem 1.1rem; border-radius: 0 8px 8px 0; font-size: .93rem; color: var(--ink-600); }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Domondon Dominium<span class="tm">™</span></a>
+    <nav class="main" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="framework.html">The Framework</a>
+      <a href="governance.html">Governance Core</a>
+      <a href="start.html" aria-current="page">Get Started</a>
+      <a href="book.html">The Book</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero page-hero">
+  <div class="wrap">
+    <p class="kicker">Get started · Tool 2 of 3</p>
+    <h1>The MVV Tracker</h1>
+    <p class="lede">Twelve artifacts, four weeks, one team. Each artifact has a definition of done — check the parts as you build, and the tracker keeps score in your browser. Documents and resolve; no software required.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap narrow">
+    <div class="progress"><div class="bar"><div id="fill"></div></div><p id="ptext">0 of 12 artifacts done</p></div>
+    <p class="note-js" style="margin-top:1.2rem">Progress is saved only in this browser. Start with your <a href="vitals.html">vital signs</a> if you haven't — the weakest verbs tell you which week deserves extra care.</p>
+
+    <div id="tracker">
+    <div class="week"><h2>Week 1 — Purpose &amp; promise</h2>
+
+      <div class="artifact" data-a="a1">
+        <h3><input type="checkbox" class="master" id="a1"><label for="a1">1 · Team charter</label></h3>
+        <p class="why">Why the team exists — the document every agent and newcomer reads first.</p>
+        <ul class="dod">
+          <li><input type="checkbox"> Mission in one or two sentences</li>
+          <li><input type="checkbox"> Intent clause: the outcome + non-negotiables, written for the unanticipated case</li>
+          <li><input type="checkbox"> Scope (what we own) and boundaries (what we don't) listed explicitly</li>
+        </ul>
+        <p class="ref">Framework: Component 1 · Kit file: <code>CHARTER.md</code></p>
+      </div>
+
+      <div class="artifact" data-a="a2">
+        <h3><input type="checkbox" class="master" id="a2"><label for="a2">2 · Service catalog</label></h3>
+        <p class="why">Three services, each a published promise with governance attached at birth.</p>
+        <ul class="dod">
+          <li><input type="checkbox"> Three services named, each deliverable in a sentence</li>
+          <li><input type="checkbox"> Each carries: default risk tier, automation ceiling, evidence level, review gate</li>
+          <li><input type="checkbox"> The team agrees it can actually deliver all three (cognitive-load check)</li>
+        </ul>
+        <p class="ref">Framework: Component 3</p>
+      </div>
+
+      <div class="artifact" data-a="a3">
+        <h3><input type="checkbox" class="master" id="a3"><label for="a3">3 · Intake form / front door</label></h3>
+        <p class="why">One declared way in. Ambient demand is where work disappears.</p>
+        <ul class="dod">
+          <li><input type="checkbox"> One channel declared the front door; others route into it</li>
+          <li><input type="checkbox"> Form captures: what, for whom, by when, category</li>
+          <li><input type="checkbox"> The hallway ask has a rule ("say yes to capturing it, not to doing it")</li>
+        </ul>
+        <p class="ref">Framework: Component 4</p>
+      </div>
+    </div>
+
+    <div class="week"><h2>Week 2 — The work</h2>
+
+      <div class="artifact" data-a="a4">
+        <h3><input type="checkbox" class="master" id="a4"><label for="a4">4 · Request triage</label></h3>
+        <p class="why">The governance checkpoint of first contact — the profile travels with the request for life.</p>
+        <ul class="dod">
+          <li><input type="checkbox"> Classification questions written (type, urgency, risk, owner, evidence, approval)</li>
+          <li><input type="checkbox"> Governance profile fields defined (tier · PHI status · external-facing · human review)</li>
+          <li><input type="checkbox"> P0–P4 + Reject adopted, with the protection override in writing</li>
+        </ul>
+        <p class="ref">Framework: Components 5–6 · Kit: workflow header</p>
+      </div>
+
+      <div class="artifact" data-a="a5">
+        <h3><input type="checkbox" class="master" id="a5"><label for="a5">5 · Workflow map (one workflow)</label></h3>
+        <p class="why">One real workflow made explicit — trigger to follow-up, leveled per step.</p>
+        <ul class="dod">
+          <li><input type="checkbox"> Steps written from trigger to documentation</li>
+          <li><input type="checkbox"> Each step declares: who, automation level (L0–L4), evidence produced</li>
+          <li><input type="checkbox"> Review and approval are separate steps with different names on them</li>
+        </ul>
+        <p class="ref">Framework: Component 7 · Kit: <code>workflows/_TEMPLATE.md</code></p>
+      </div>
+
+      <div class="artifact" data-a="a6">
+        <h3><input type="checkbox" class="master" id="a6"><label for="a6">6 · Role / owner map</label></h3>
+        <p class="why">Every chain of work terminates in a named human.</p>
+        <ul class="dod">
+          <li><input type="checkbox"> The eight role types assigned to actual names</li>
+          <li><input type="checkbox"> AI agents listed as Operator/Contributor only, each with a human principal</li>
+          <li><input type="checkbox"> Escalation owner named and reachable</li>
+        </ul>
+        <p class="ref">Framework: Component 8</p>
+      </div>
+    </div>
+
+    <div class="week"><h2>Week 3 — Memory &amp; control</h2>
+
+      <div class="artifact" data-a="a7">
+        <h3><input type="checkbox" class="master" id="a7"><label for="a7">7 · Knowledge source map</label></h3>
+        <p class="why">What the team runs on, tiered by authority, with staleness owned by someone.</p>
+        <ul class="dod">
+          <li><input type="checkbox"> Sources listed and tiered: governed / working / ambient</li>
+          <li><input type="checkbox"> Each governed source has a named steward and a review date</li>
+          <li><input type="checkbox"> The three tribal-knowledge items from your vital signs have a capture plan</li>
+        </ul>
+        <p class="ref">Framework: Component 10</p>
+      </div>
+
+      <div class="artifact" data-a="a8">
+        <h3><input type="checkbox" class="master" id="a8"><label for="a8">8 · Human review gates</label></h3>
+        <p class="why">Not a human glancing at AI output — a designed control that stays alive.</p>
+        <ul class="dod">
+          <li><input type="checkbox"> Gates placed by tier and reversibility (and ungated-on-purpose written down)</li>
+          <li><input type="checkbox"> Each gate names its active task (what the reviewer does, not just reads)</li>
+          <li><input type="checkbox"> Rejection counting started — a gate that never rejects gets re-examined</li>
+        </ul>
+        <p class="ref">Framework: Component 14 · <a href="governance.html">the six gate rules</a></p>
+      </div>
+
+      <div class="artifact" data-a="a9">
+        <h3><input type="checkbox" class="master" id="a9"><label for="a9">9 · Audit / evidence log (the ledger)</label></h3>
+        <p class="why">If it isn't in the ledger, it didn't happen.</p>
+        <ul class="dod">
+          <li><input type="checkbox"> Append-only log created with the entry format</li>
+          <li><input type="checkbox"> First real entries written (including one gate event)</li>
+          <li><input type="checkbox"> Rule adopted: no patient/confidential data in the ledger, ever</li>
+        </ul>
+        <p class="ref">Framework: Components 15–16 · Kit file: <code>LEDGER.md</code></p>
+      </div>
+    </div>
+
+    <div class="week"><h2>Week 4 — The heartbeat</h2>
+
+      <div class="artifact" data-a="a10">
+        <h3><input type="checkbox" class="master" id="a10"><label for="a10">10 · Task / status dashboard</label></h3>
+        <p class="why">Work visible across levels, carrying its governance profile.</p>
+        <ul class="dod">
+          <li><input type="checkbox"> Active work listed with owner, status, and due date</li>
+          <li><input type="checkbox"> Tier/gate status visible ("what high-risk work is currently ungated?" is answerable)</li>
+          <li><input type="checkbox"> Stale items surface automatically or by weekly review</li>
+        </ul>
+        <p class="ref">Framework: Component 13</p>
+      </div>
+
+      <div class="artifact" data-a="a11">
+        <h3><input type="checkbox" class="master" id="a11"><label for="a11">11 · Weekly brief (SBAR-shaped)</label></h3>
+        <p class="why">A brief you can read in the elevator; a meeting you could stand up through.</p>
+        <ul class="dod">
+          <li><input type="checkbox"> Template set: Situation / Background / Assessment / Recommendation</li>
+          <li><input type="checkbox"> First brief produced and read</li>
+          <li><input type="checkbox"> One standing "challenge round": disagreements with AI output logged and praised</li>
+        </ul>
+        <p class="ref">Framework: Component 12 · Kit: <code>workflows/example-weekly-brief.md</code></p>
+      </div>
+
+      <div class="artifact" data-a="a12">
+        <h3><input type="checkbox" class="master" id="a12"><label for="a12">12 · Metrics snapshot + improvement loop</label></h3>
+        <p class="why">The baseline — and the loop that makes everything else compound.</p>
+        <ul class="dod">
+          <li><input type="checkbox"> Baseline snapshot taken (volume, speed, quality — whatever you honestly have)</li>
+          <li><input type="checkbox"> Governance health included: gate events, escalations, boundary blocks</li>
+          <li><input type="checkbox"> First monthly improvement loop scheduled before the month ends</li>
+        </ul>
+        <p class="ref">Framework: Components 16, 18 · Kit: <code>prompts/improvement-loop.md</code></p>
+      </div>
+    </div>
+    </div>
+
+    <div class="toolbar">
+      <button class="btn small" id="dl" type="button">Download progress as Markdown</button>
+      <button class="btn small" id="copyai" type="button">Copy as a prompt for your AI</button>
+      <button class="btn small ghost" style="color:var(--ink-800);border-color:var(--gold-600)" id="clear" type="button">Reset tracker</button>
+    </div>
+    <p style="font-size:.92rem;color:var(--ink-600)">When all twelve are done: run your first <a href="canvas.html">canvas rubric</a> scoring to see the maturity picture, and put the improvement loop on the calendar — the loop is the part that pays.</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  var KEY = "dd-mvv-v1";
+  var tracker = document.getElementById("tracker");
+  var arts = Array.prototype.slice.call(tracker.querySelectorAll(".artifact"));
+
+  function refresh() {
+    var done = 0;
+    arts.forEach(function (a) {
+      var m = a.querySelector(".master");
+      if (m.checked) { a.classList.add("done"); done++; } else { a.classList.remove("done"); }
+    });
+    document.getElementById("fill").style.width = Math.round(done / arts.length * 100) + "%";
+    document.getElementById("ptext").textContent = done + " of " + arts.length + " artifacts done" +
+      (done === arts.length ? " — the MVV is built. Schedule the loop. 🕯️" : "");
+  }
+  function save() {
+    var s = {};
+    arts.forEach(function (a) {
+      s[a.dataset.a] = Array.prototype.map.call(a.querySelectorAll("input"), function (i) { return i.checked; });
+    });
+    try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {}
+  }
+  function load() {
+    var raw; try { raw = localStorage.getItem(KEY); } catch (e) { return; }
+    if (!raw) return;
+    try {
+      var s = JSON.parse(raw);
+      arts.forEach(function (a) {
+        var v = s[a.dataset.a]; if (!v) return;
+        Array.prototype.forEach.call(a.querySelectorAll("input"), function (i, idx) { i.checked = !!v[idx]; });
+      });
+    } catch (e) {}
+  }
+  tracker.addEventListener("change", function (e) {
+    var art = e.target.closest(".artifact");
+    if (art && !e.target.classList.contains("master")) {
+      var subs = art.querySelectorAll(".dod input");
+      art.querySelector(".master").checked = Array.prototype.every.call(subs, function (i) { return i.checked; });
+    }
+    if (art && e.target.classList.contains("master")) {
+      Array.prototype.forEach.call(art.querySelectorAll(".dod input"), function (i) { i.checked = e.target.checked; });
+    }
+    save(); refresh();
+  });
+
+  function md() {
+    var lines = ["# MVV Progress — " + new Date().toISOString().slice(0,10), ""];
+    arts.forEach(function (a) {
+      var name = a.querySelector("h3 label").textContent;
+      lines.push("- [" + (a.querySelector(".master").checked ? "x" : " ") + "] " + name);
+      Array.prototype.forEach.call(a.querySelectorAll(".dod li"), function (li) {
+        lines.push("  - [" + (li.querySelector("input").checked ? "x" : " ") + "] " + li.textContent.trim());
+      });
+    });
+    lines.push(""); lines.push("Generated by the Domondon Dominium MVV tracker.");
+    return lines.join("\n");
+  }
+
+  document.getElementById("dl").addEventListener("click", function () {
+    var blob = new Blob([md()], { type: "text/markdown" });
+    var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "mvv-progress.md"; a.click();
+    URL.revokeObjectURL(a.href);
+  });
+  document.getElementById("copyai").addEventListener("click", function (e) {
+    var p = "You are my governed AI assistant (drafts only; you recommend, I decide; no patient or confidential data). " +
+      "Below is my Minimum Viable Version progress from the Domondon Dominium framework. " +
+      "Task: for the FIRST unchecked artifact, draft its skeleton for my review — using my earlier answers if I've shared them — " +
+      "and list what you need from me to finish it. One artifact at a time.\n\n---\n\n" + md();
+    (navigator.clipboard ? navigator.clipboard.writeText(p) : Promise.reject()).then(function () {
+      e.target.textContent = "Copied ✓"; setTimeout(function () { e.target.textContent = "Copy as a prompt for your AI"; }, 2000);
+    }).catch(function () { window.prompt("Copy this prompt:", p); });
+  });
+  document.getElementById("clear").addEventListener("click", function () {
+    if (!confirm("Reset all progress in this browser?")) return;
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    Array.prototype.forEach.call(tracker.querySelectorAll("input"), function (i) { i.checked = false; });
+    refresh();
+  });
+
+  load(); refresh();
+})();
+</script>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="credo">🕯️ Carry the lamp. Keep the ledger. Agents propose. Humans judge. Nurses steward.</p>
+    <nav aria-label="Footer">
+      <a href="framework.html">Framework</a>
+      <a href="governance.html">Governance</a>
+      <a href="start.html">Get Started</a>
+      <a href="book.html">Book</a>
+      <a href="about.html">About</a>
+    </nav>
+    <p>Domondon Dominium™ © 2026 Robert Domondon · <a href="mailto:robert@domondon.us">robert@domondon.us</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
