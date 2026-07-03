@@ -89,6 +89,13 @@ section.alt { background: var(--parch-100); }
 section.dark { background: var(--ink-900); color: var(--parch-100); }
 section.dark h2, section.dark h3 { color: var(--white); }
 section.dark a { color: var(--gold-400); }
+section.dark strong, .hero strong { color: var(--white); }
+section.dark blockquote.pull { background: var(--ink-800); color: var(--parch-100); }
+section.dark blockquote.pull footer { color: var(--ink-400); }
+section.dark a.btn { color: var(--ink-950); }
+section.dark a.btn:hover { color: var(--ink-950); }
+section.dark a.btn.ghost, .hero a.btn.ghost { color: var(--parch-100); }
+section.dark a.btn.ghost:hover, .hero a.btn.ghost:hover { color: var(--gold-400); }
 .kicker { color: var(--gold-600); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .8rem; margin: 0 0 .6rem; }
 section.dark .kicker { color: var(--gold-400); }
 
