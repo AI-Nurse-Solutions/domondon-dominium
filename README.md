@@ -29,7 +29,7 @@ Static site presenting the Domondon Dominium framework (governed operating archi
 3. In the repo: **Settings → Pages → Source: Deploy from a branch → Branch: `main` / `(root)` → Save.**
 4. The site publishes at `https://<YOUR-USERNAME>.github.io/domondon-dominium/` within a couple of minutes. All links are relative, so it works at any path.
 
-## When the domain arrives
+## Domain: domondon-dominium.org — CNAME committed; DNS setup below still needed at the registrar
 
 1. **Settings → Pages → Custom domain** → enter the domain (e.g. `domondondominium.com`) → Save. GitHub creates a `CNAME` file in the repo automatically (or add one yourself containing just the bare domain).
 2. At your DNS provider:
@@ -40,8 +40,8 @@ Static site presenting the Domondon Dominium framework (governed operating archi
 
 ## Post-domain TODOs
 
-- [ ] Add `<link rel="canonical">` and Open Graph/Twitter meta tags to all six pages (needs final URL).
-- [ ] Add a favicon (a lamp mark 🕯️ would suit) and `og-image`.
+- [x] Canonical + Open Graph/Twitter meta tags on all nine pages (domondon-dominium.org).
+- [x] Favicon (`assets/favicon.svg`, lamp mark) and `assets/og-image.png` added.
 - [x] Nurse AI OS cross-linked (https://nurse-ai-os.org) on `start.html`, `about.html`, and the home footer. NIN URL still to add when available.
 - [ ] Decide analytics (GoatCounter or Plausible are static-friendly, matching the main site's plan).
 - [ ] When the book has a publication page or mailing list, point `book.html`'s update section at it (currently `mailto:`; a Tally/Formspree form keeps mobile users, per the main site's own recommendation).
